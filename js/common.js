@@ -1,3 +1,19 @@
+
+// checks for truthy config values "on" or "TRUE", etc. 
+// used for parsing config file
+function trueConfig(value){
+  var true_values = ['on','true','enabled','1','yes'];
+  for (var i=0; i < true_values.length; i++){
+    if (value === 1 || value.toLowerCase() === true_values[i]){
+      console.log(value+' is true');
+      return true;
+    }
+  }
+  console.log(value+' is false');
+  return false;
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////
 if (typeof String.prototype.startsWith != 'function') {
   String.prototype.startsWith = function (str){

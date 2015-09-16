@@ -3,6 +3,8 @@ var config = {
 	title: 'Information',
 	showNavigation: false,
 	showTime: true,
+	showHeader: true,
+	overlayHeader: false
 };
 
 // content
@@ -66,18 +68,12 @@ function initializeContent() {
 			if (!property.startsWith('#')) {
 				var value = e['gsx$value']['$t'];
 				if (config.hasOwnProperty(property)) {
-					console.info(property + ':' + value);
 					config[property] = $.parseJSON(value.toLowerCase());
+					console.info(property + ':' + config[property]);		
 				}
 			}
 		}
-		// set configs
-		if (!config['showNavigation']) {
-			$('.nav').hide();
-		}
-		if (!config['showTime']) {
-			$('#datetime').hide();
-		}
+		console.log(config);
 	}).error(function(message) {
 		alert('error' + message);
 	});
@@ -105,6 +101,7 @@ function initializeContent() {
 			}
 		}
 		updateSlice(1);
+		setTimeout(applyConfig, 500);
 	}).error(function(message) {
 		alert('error' + message);
 	});
@@ -116,6 +113,25 @@ function initializeContent() {
 			$('#bar .timer .fill').height((100 - percent) + '%');
 		}
 	}, 500);
+}
+
+function applyConfig(){
+	console.log('apply config');
+	// apply config settings
+	if (!config['showNavigation']) {
+		$('.nav').hide();
+	}
+	if (!config['showHeader']) {
+		console.log('wtf');
+		$('#header').hide();
+	}
+	if (config['overlayHeader']){
+		$('#contentFrame').css('top','0px');
+		$('#bar').hide();
+	}
+	if (!config['showTime']) {
+		$('#datetime').hide();
+	}
 }
 
 function updateSlice(step, wait) {
