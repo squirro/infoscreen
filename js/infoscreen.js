@@ -6,8 +6,7 @@ var config = {
 };
 
 // content
-var content_key = '0AnrtptTR3KifdG5OVXFxWl9mVHAxYVoybXBTcXU3elE'; // emdi
-//var content_key = '0Av0G-GmOlMZ6dEZaS2JtMTBPOWFtX1VXNnA1R2FCa3c';
+var content_key = '1COdWL6H6PwKjb-YzxJXwLmAyHKt5yggRXB17t0iF938';
 var content = [];
 var k_name = 'name';
 var k_link = 'link';
@@ -231,10 +230,10 @@ function initEventHandlers() {
 			e.preventDefault();
 			$("#bar .nav .pause").trigger('click');
 		}
-		if (e.keyCode == 65 || e.keyCode == 37) { // A or left 
+		if (e.keyCode == 65 || e.keyCode == 37) { // A or left
 			e.preventDefault();
 			updateSlice(-1);
-		} else if (e.keyCode == 68 || e.keyCode == 39) { // D or right 
+		} else if (e.keyCode == 68 || e.keyCode == 39) { // D or right
 			e.preventDefault();
 			updateSlice(1);
 		}
@@ -280,7 +279,7 @@ $(document).ready(function() {
 // // 3d flip
 //
 // TweenLite.to($('#contentFrame'), 2, {
-//     transformOrigin:"50& 50%", 
+//     transformOrigin:"50& 50%",
 //     rotationY:-360,
 //     onComplete: function(){
 //         TweenLite.to($('#contentFrame'), 0, {transformOrigin:"50% 50%", rotationY:-0});
